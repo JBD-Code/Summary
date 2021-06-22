@@ -38,7 +38,7 @@
   
   - **LF_Sum(), LF_Mul()** Method를 구현하고 **Runcalc**의 선언은 **LF_Sum(), LF_Mul()** 처럼 두 개의 매개변수를 입력받고 있다.
   - Delegate는 Method에 대한 참조이다. Delegate에 Method의 주소를 할당한 후 Delegate를 호출하면 RunCalc가 LF_Sum(), LF_Mul() Method를 호출해 준다.
-  - Delegate의 선언에서 반환 형식과 매개변수는 할당되는 Method와 같은 형태를 가지고 있어야 하며 다른 형태를 가지고 있을 경우에 할당되지 않는다.
+  - Delegate의 선언은 반환 형식, 매개변수는 할당되는 Method와 같은 형태를 가지고 있어야 하며 다른 형태를 가지고 있을 경우에는 할당되지 않는다.
 
 ② Delegate의 활용 
 
@@ -47,7 +47,7 @@
 
 ### (2) C# Delegate Chaining     
 ① Delegate Chaining
-  - Delegate Chaining이란 하나의 Delegate를 이용해서 여러개의 Method를 호출 할 수 있다.
+  - Delegate Chaining이란 하나의 Delegate를 이용해서 여러 개의 Method를 호출 할 수 있다.
 
 ```C#
 class delegateTest02
