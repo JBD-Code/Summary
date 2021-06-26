@@ -58,7 +58,16 @@ namespace Thread01_05
 }
 ```
 ### (3) C# Thread Running and IsAlive 
-
+  **① ThreadState.Running**
+  -  Thread.Start( ) 호출 후 bool형 bThreadRunning에는 true 값을 출력 한다. 
+  -  Thread.Abort( ) 호출 후 bool형 bAbortedThreadRunning에는 false 값을 출력 한다.   
+  -  Thread.Join( ) 호출 후 bool형 bJoinThreadRunning에는 false 값을 출력 한다.   
+  
+  **② Thread.IsAlive**
+  -  Thread.Start( ) 호출 후 bool형 bThreadAlive에는 true 값을 출력 한다. 
+  -  Thread.Abort( ) 호출 후 bool형 bAbortedThreadAlive에는 true 값을 출력 한다.   
+  -  Thread.Join( ) 호출 후 bool형 bJoinThreadAlive에는 false 값을 출력 한다.   
+  
 ```C#
 namespace Thread01_06
 {
@@ -90,6 +99,16 @@ namespace Thread01_06
 
                 Console.WriteLine($"Aborted IsAlive : {bAbortedThreadAlive}");
                 Console.WriteLine($"Aborted ThreadState.Running : {bAbortedThreadRunning}");
+                
+                th01.Join();
+                
+                //using Running
+                bool bJoinThreadRunning = th01.ThreadState == ThreadState.Running;
+
+                //using IsAlive    
+                bool bJoinThreadAlive = th01.IsAlive;
+                Console.WriteLine($"Join IsAlive : {bJoinThreadAlive}");
+                Console.WriteLine($"Join ThreadState.Running : {bJoinThreadRunning}");
             }
             catch (ThreadAbortException ex)
             {
