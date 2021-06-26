@@ -22,66 +22,36 @@
 ② Thread.Start() Method를 호출하여 Thread를 시작한다.   
 ③ Thread.Join() Method를 호출하면 Thread가 완전히 정지할 때 까지 대기하고, Join() Method 가 반환되고 나면 프로그램의 흐름은 Main Thread로 합쳐진다. 
 ```C#
-class SideTask
+namespace Thread01_01
 {
-    int iCount ;
-
-    public SideTask(int p_iCount)
+    class Program
     {
-        iCount = p_iCount;
-    }
-
-    public void KeepAlive()
-    {
-        try
+        static void DoSomething()
         {
-            while (iCount > 0)
+            for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine($"{iCount--} left");
+                Console.WriteLine($"DoSomething : {i}");
                 Thread.Sleep(10);
             }
-            Console.WriteLine("Count : 0");
         }
-        catch (ThreadAbortException exAbort)
+        static void Main(string[] args)
         {
-            Console.WriteLine(exAbort);
-            Thread.ResetAbort();
-        }
-        finally 
-        {
-            Console.WriteLine("Clearing Resource");
+            Thread th01 = new Thread(new ThreadStart(DoSomething)); //Ready
+            Console.WriteLine("Start Thread");
+            th01.Start(); //Start
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Main : {i}");
+                Thread.Sleep(10);
+            }
+            Console.WriteLine("Wating until thread stops");
+            th01.Join(); //
+
+            Console.WriteLine("Finished");
+            Console.ReadLine();
         }
     }
-}
-
-class Program
-{
-  static void Main(string[] args)
-  {
-      SideTask cSideTask = new SideTask(20);
-      Thread th01 = new Thread(new ThreadStart(cSideTask.KeepAlive));
-      th01.IsBackground = false;
-
-      Console.WriteLine("Starting Thread");
-      th01.Start();
-      Thread.Sleep(100);
-
-      Console.WriteLine("Aborting Thread");
-      th01.Abort();
-      Console.WriteLine("Wating until thread Stop");
-      th01.Join();
-
-      if (th01.ThreadState == ThreadState.Aborted)
-      {
-          Console.WriteLine("Thread Stop");
-      }
-      else if (th01.ThreadState == ThreadState.Stopped)
-      {
-          Console.WriteLine("Thread Cancel");
-      }
-      Console.WriteLine("Finished");
-      Console.ReadLine();
-  }
 }
 ```
 
