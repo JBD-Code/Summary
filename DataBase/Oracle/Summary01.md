@@ -7,7 +7,7 @@
 
 **(2) Table**
 
-- Data를 입력, 수정, 삭제하는 즉 Data를 담고 있는 Object
+- Data를 입력, 수정, 삭제하는 즉 Data를 담고 있는 
 - Table는 DBMS에서 가장 기본적인 Object로 Row , Cloumn으로 구성된 2차원의 형태이다.
 - Table name, Column name은 최대 30byte 가능하다.
 - Table name, Column name은 예약어 사용이 불가능하다.
@@ -75,7 +75,7 @@
 - 'Synonym'은 '동의어'란 의미로 Database object에는 각자 고유한 이름이 있는 데 이 object에 대한 동의어를 만드는 것이 바로 Synonym이다. 
 - Public Synonym와 Private Synonym가 있으며 Public Synonym은 모든 user이 접근 가능하지만 Private Synonym은 특정 user만 접근이 가능하다. 
 - Database의 투명성을 위해서 사용한다. 다른 사용자의 객체를 많이 참조할 때 사용한다.
-- Synonym이 생성되면 나중에 이 Synonym을 참조하고 있는  Object의 이름이 변경 되더라도 이전에 작성한  Query를 수정할 필요가 없다. 
+- Synonym이 생성되면 나중에 이 Synonym을 참조하고 있는 Object의 이름이 변경 되더라도 이전에 작성한  Query를 수정할 필요가 없다. 
 - Synonym은 별칭이므로 원래 Object를 숨길 수 있기 때문에 보안에 유리하다. 
 
 ```SQL
