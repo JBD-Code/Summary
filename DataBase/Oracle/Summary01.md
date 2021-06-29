@@ -22,7 +22,7 @@
 - 현장에서는 여러 개의 테이블에서 필요한 정보를 뽑아 사용할 때가 많은데 이때 선택할 수 있는 최선책이 View이다. 
 - View는 데이터 보안 측면에서 유리하며, View를 보면 Column과 Data만 공개가 되므로 원천 Table을 감출 수 있다. 
 - View는 다른 Table를 참조하고 있으므로 View를 삭제하더라도 실제의 Data는 삭제되지 않는다. 또한 기존에 생성된 View를 수정하는 구문은 View생성 Query와 동일하다. 
-- CREATE OR Replace가 생성 혹은 대체한다는 의미 이므로 이 구문을 사용해서 View의 정의 부분을 수정 View 가 가져오는 원천테이블이나 Column을 변경할 수 있다.
+- CREATE OR REPLACE가 생성 혹은 대체한다는 의미이므로 이 구문을 사용해서 View의 정의 부분을 수정 View 가 가져오는 기존 Table, Column을 변경할 수 있다.
 - View는 읽기 전용 View 와 Data 수정 가능한 View가 존재한다.
 
 ```SQL
@@ -34,8 +34,6 @@
           DEPARTMENTS  b
     WHERE a.DEPARTMENT_ID  = b.DEPARTMENT_ID;
 ```
-- 위와 같이 자주 사용되는 정보를 아래와 같은 View로 생성이 가능하다. 
-
 ```SQL
   CREATE OR REPLACE VIEW EMP_DEPT_V1 AS 
   SELECT A.EMPLOYEE_ID, 
@@ -60,7 +58,6 @@
    CREATE UNIQUE INDEX EX2_5_IX01
        ON EX2_5(COLUMN3);
 ```
-
 ```SQL
    SELECT INDEX_NAME, INDEX_TYPE, TABLE_NAME, UNIQUENESS
      FROM USER_INDEXES
@@ -72,11 +69,11 @@
 
 **(5) Synonym**
 
-- 'Synonym'은 '동의어'란 의미로 Database object에는 각자 고유한 이름이 있는 데 이 object에 대한 동의어를 만드는 것이 바로 Synonym이다. 
-- Public Synonym와 Private Synonym가 있으며 Public Synonym은 모든 user이 접근 가능하지만 Private Synonym은 특정 user만 접근이 가능하다. 
+- 'Synonym'은 동의어란 의미로 Database object에는 각자 고유한 이름이 있는데 이 object에 대한 동의어를 만드는 것이 바로 Synonym이다. 
+- Public Synonym과 Private Synonym가 있으며 Public Synonym은 모든 user가 접근 가능하고, Private Synonym은 특정 user만 접근 가능하다. 
 - Database의 투명성을 위해서 사용한다. 다른 사용자의 객체를 많이 참조할 때 사용한다.
-- Synonym이 생성되면 나중에 이 Synonym을 참조하고 있는 Object의 이름이 변경 되더라도 이전에 작성한  Query를 수정할 필요가 없다. 
-- Synonym은 별칭이므로 원래 Object를 숨길 수 있기 때문에 보안에 유리하다. 
+- Synonym이 생성되면 나중에 이 Synonym을 참조하고 있는 Object의 이름이 변경 되더라도 이전에 작성한 Query를 수정할 필요가 없다. 
+- Synonym은 별칭이므로 원래 Object를 숨길 수 있기 때문에 보안 측면에 유리하다. 
 
 ```SQL
    CREATE OR REPLACE SYNONYM SYN_CHANNEL
