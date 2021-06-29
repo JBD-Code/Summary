@@ -69,3 +69,9 @@
 ```SQL
    DROP INDEX EX2_5_IX01;
 ```
+
+
+**(5) Synonym**
+- 'Synonym'은 '동의어'란 의미로 Database object에는 각자 고유한 이름이 있는 데 이 object에 대한 동의어를 만드는 것이 바로 Synonym이다. 
+- Public Synonym와 Private Synonym가 있으며 Public Synonym은 모든 user이 접근 가능하지만 Private Synonym은 특정 user만 접근이 가능하다. 
+-
