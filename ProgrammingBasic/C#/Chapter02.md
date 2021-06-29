@@ -1,4 +1,4 @@
-## Chapter04 C#  
+## Chapter02 C#  
 ### (1) C# Shallow Copy(얕은 복사)   
   ① class 선언   
   ② Instance source와 target을 생성하고 값을 할당     
