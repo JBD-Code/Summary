@@ -1,0 +1,24 @@
+
+## Oracle Summary 00 
+### DataBase Object 
+(1) Database Object 
+- Database Object란 Database내에 존재하는 논리적인 저장 구조를 말한다. 
+- DBMS가 Data를 관리하려면 Data를 어딘가에 저장해서 관리해야 하는데 이런 목적을 달성하기 위한 모든 논리적인 저장 구조가 Database Object이다. 
+
+(2) Table
+- Data를 입력, 수정, 삭제하는 즉 Data를 담고 있는 Object
+- Table는 DBMS에서 가장 기본적인 Object로 Row , Cloumn으로 구성된 2차원의 형태이다.
+- Table name, Column name은 최대 30byte 가능하다.
+- Table name, Column name은 예약어 사용이 불가능하다.
+- Table name, Column name은 문자, 숫자, '_', '$', '#'을 사용가능하지만 첫 글자는 문자만 올수 있다.
+- 하나의 Table에 사용 가능한 Column은 최대  255개이다.   
+
+(3) View 
+- View 는 하나 이상의 Table이나 다른 View 를 볼 수 있게 하는 Database Object이다.  
+- 실제 데이터는 View 를 구성하는 Table에 담겨 있지만 마치  Table 처럼 사용할 수 있다.
+- Table 뿐만 아니라 다른 View 를 참조해서 새로운 View를 만들 수도 있다. Data를 본다는 의미가 있으므로 View의 정의는 데이터를 조회하는 SELECT 문으로 구성된다.
+- 현장에서는 여러 개의 테이블에서 필요한 정보를 뽑아 사용할 때가 많은데 이때 선택할 수 있는 최선책이 View이다. 
+- View는 데이터 보안 측면에서 유리하며, View를 보면 Column과 Data만 공개가 되므로 원천 Table을 감출 수 있다. 
+- View는 다른 Table를 참조하고 있으므로 View를 삭제하더라도 실제의 Data는 삭제되지 않는다. 또한 기존에 생성된 View를 수정하는 구문은 View생성 Query와 동일하다. 
+- CREATE OR Replace가 생성 혹은 대체한다는 의미 이므로 이 구문을 사용해서 View의 정의 부분을 수정 View 가 가져오는 원천테이블이나 Column을 변경할 수 있다.
+- View는 읽기 전용 View 와 Data 수정 가능한 View가 존재한다.
