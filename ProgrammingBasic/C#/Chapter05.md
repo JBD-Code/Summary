@@ -1,4 +1,4 @@
-## Chapter04 C#  
+## Chapter05 C#  
 ### (1) C# Thread State 
   **① Unstarted**    
   - Thread 객체를 생성한 후 Thread.Start( ) 가 호출되기 전의 상태이다.
@@ -25,7 +25,7 @@
 ### (2) C# Thread State Flags
  - Thread 객체의 ThreadState 필드를 통해 상태를 확인할 때에는 반드시 비트 연산을 이용한다. 
 ```C#
-namespace Thread01_05
+namespace Thread01
 {
     class Program
     {
@@ -43,16 +43,16 @@ namespace Thread01_05
             PrintThreadState(ThreadState.AbortRequested);
             PrintThreadState(ThreadState.Aborted | ThreadState.Stopped);
             
-            Running          : 0
-            StopRequested    : 1
-            Background       : 4
-            Unstarted        : 8
-            Stopped          : 16
-            WaitSleepJoin    : 32
-            Suspended        : 64
-            Aborted          : 256
-            AbortRequested   : 128
-            Stopped, Aborted : 272
+            //Running          : 0
+            //StopRequested    : 1
+            //Background       : 4
+            //Unstarted        : 8
+            //Stopped          : 16
+            //WaitSleepJoin    : 32
+            //Suspended        : 64
+            //Aborted          : 256
+            //AbortRequested   : 128
+            //Stopped, Aborted : 272
         }
     }
 }
@@ -62,14 +62,14 @@ namespace Thread01_05
   -  Thread.Start( ) 호출 후 bool형 bThreadRunning에는 true 값을 출력 한다. 
   -  Thread.Abort( ) 호출 후 bool형 bAbortedThreadRunning에는 false 값을 출력 한다.   
   -  Thread.Join( ) 호출 후 bool형 bJoinThreadRunning에는 false 값을 출력 한다.   
-  
+
   **② Thread.IsAlive**
   -  Thread.Start( ) 호출 후 bool형 bThreadAlive에는 true 값을 출력 한다. 
   -  Thread.Abort( ) 호출 후 bool형 bAbortedThreadAlive에는 true 값을 출력 한다.   
   -  Thread.Join( ) 호출 후 bool형 bJoinThreadAlive에는 false 값을 출력 한다.   
-  
+
 ```C#
-namespace Thread01_06
+namespace Thread01
 {
     class Program
     {
@@ -79,24 +79,17 @@ namespace Thread01_06
             {
                 Thread th01 = new Thread(LF_ThreadFunction);
                 th01.Start();
-
                 //using Running
                 bool bThreadRunning = th01.ThreadState == ThreadState.Running;
-
                 //using IsAlive    
                 bool bThreadAlive = th01.IsAlive;
-
                 Console.WriteLine($"Started ThreadState.Running : {bThreadRunning}");
                 Console.WriteLine($"Started IsAlive : {bThreadAlive}");
-
                 th01.Abort();
-
                 //using Running
                 bool bAbortedThreadRunning = th01.ThreadState == ThreadState.Running;
-
                 //using IsAlive    
                 bool bAbortedThreadAlive = th01.IsAlive;
-
                 Console.WriteLine($"Aborted IsAlive : {bAbortedThreadAlive}");
                 Console.WriteLine($"Aborted ThreadState.Running : {bAbortedThreadRunning}");
                 
@@ -104,7 +97,6 @@ namespace Thread01_06
                 
                 //using Running
                 bool bJoinThreadRunning = th01.ThreadState == ThreadState.Running;
-
                 //using IsAlive    
                 bool bJoinThreadAlive = th01.IsAlive;
                 Console.WriteLine($"Join IsAlive : {bJoinThreadAlive}");
@@ -115,7 +107,6 @@ namespace Thread01_06
                 Console.WriteLine(ex.StackTrace);
             }
         }
-
        private static void LF_ThreadFunction(object p_object)
        {
             Console.WriteLine($"Test : {p_object}");
@@ -126,4 +117,3 @@ namespace Thread01_06
 
   참조   
   > [이것이 C#이다](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=260230941)   
-      
