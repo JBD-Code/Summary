@@ -1,4 +1,4 @@
-## Chapter07 C#  
+## Chapter06 C#  
 
 ### (1) Thread Synchronization     
 
