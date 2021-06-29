@@ -57,7 +57,7 @@
 - B-tree Index는 Index-Key와 이 Key에 해당하는 Column 값을 가진 Table의 Row가 저장된 주소값으로 구성된다. 
 
 ```SQL
-   CREATE UNIQUE INDEX EX2_5_Ix01
+   CREATE UNIQUE INDEX EX2_5_IX01
        ON EX2_5(COLUMN3);
 ```
 
@@ -67,5 +67,5 @@
     WHERE TABLE_NAME = 'EX2_5';
 ```
 ```SQL
-DROP INDEX EX2_5_IX01;
+   DROP INDEX EX2_5_IX01;
 ```
