@@ -99,20 +99,20 @@
 ```
 
 ```SQL
-MERGE INTO EX3_3 D 
-USING 
-    (
-      SELECT EMPLOYEE_ID, 
-             SALARY,
-             MANAGER_ID 
-        FROM EMPLOYEES 
-       WHERE MANAGER_ID = 146
-    ) B 
-   ON (D.EMPLOYEE_ID = B.EMPLOYEE_ID) 
- WHEN MATCHED THEN UPDATE SET D.BONUS_AMT = D.BONUS_AMT + B.SALARY * 0.01
- WHEN NOT MATCHED THEN INSERT (D.EMPLOYEE_ID, D.BONUS_AMT)
-                       VALUES (B.EMPLOYEE_ID, B.SALARY *0.01) 
-                        WHERE (B.SALARY < 8000);
+   MERGE INTO EX3_3 D 
+   USING 
+        (
+          SELECT EMPLOYEE_ID, 
+                 SALARY,
+                 MANAGER_ID 
+            FROM EMPLOYEES 
+           WHERE MANAGER_ID = 146
+        ) B 
+      ON (D.EMPLOYEE_ID = B.EMPLOYEE_ID) 
+    WHEN MATCHED THEN UPDATE SET D.BONUS_AMT = D.BONUS_AMT + B.SALARY * 0.01
+    WHEN NOT MATCHED THEN INSERT (D.EMPLOYEE_ID, D.BONUS_AMT)
+                          VALUES (B.EMPLOYEE_ID, B.SALARY *0.01) 
+                           WHERE (B.SALARY < 8000);
 ```  
 
 **(5) DELETE**
