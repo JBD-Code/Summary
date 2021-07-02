@@ -114,3 +114,9 @@ USING
                        VALUES (B.EMPLOYEE_ID, B.SALARY *0.01) 
                         WHERE (B.SALARY < 8000);
 ```  
+
+**(5) DELETE**
+- Table에 있는 Data를 삭제할 때 DELETE문을 사용한다. 
+```SQL
+   DELETE EX3_3;
+```
