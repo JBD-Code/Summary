@@ -6,11 +6,11 @@
 
 **(1) CONNECT_BY_ISCYCLE, CONNECT_BY_ISLEAF, LEVEL**
 - 계층형 Query에서 사용하는 Pseudo-Column 이다.  
-- (추후 따로 정리 예정) 
+- (별도 정리 예정) 
 
 **(2) NEXTVAL, CURRVAL**
 - Sequence에서 사용하는 Pseudo-Column이다. 
-- (추후 따로 정리 예정)
+- (별도 정리 예정)
 
 **(3) ROWNUM, ROWID** 
 - ROWNUM은 Query에서 반환되는 각 Row에 대한 순서 값을 나타내는 Pseudo-Column이다.
@@ -41,6 +41,7 @@
       FROM EMPLOYEES  
      WHERE ROWNUM < 5;
 ```
+
 **(3) 논리 연산자** 
 - 논리 연산을 수행하는 연산자로 수학에서 사용하는 부등호와 쓰임새는 같다. 
 - 두 값이 같은지를 판단하는 등호(=)연산자의 반대인 비동등 연산자 '<>', '!=', '\^='가 존재하는데 이 세 연산자의 사용법과 반환 결과는 모두 동일하다. 
@@ -66,27 +67,27 @@
 **(1) 비교 조건식**   
   **① ANY**
   - SALARY가 2000, 3000, 4000 증 하나라도 일치하는 모든 EMPLOYEE_ID를 조회하는 Query이다. 
-```SQL
-   SELECT EMPLOYEE_ID, SALARY 
-     FROM EMPLOYEES 
-    WHERE SALARY = ANY(2000, 3000, 4000)
-    ORDER BY EMPLOYEE_ID ;
-```
-```SQL
-   SELECT EMPLOYEE_ID, SALARY 
-     FROM EMPLOYEES
-    WHERE SALARY = 2000
-       OR SALARY = 3000
-       OR SALARY = 4000;
-```
-   **② ALL**    
+   ```SQL
+      SELECT EMPLOYEE_ID, SALARY 
+        FROM EMPLOYEES 
+       WHERE SALARY = ANY(2000, 3000, 4000)
+       ORDER BY EMPLOYEE_ID ;
+   ```
+   ```SQL
+      SELECT EMPLOYEE_ID, SALARY 
+        FROM EMPLOYEES
+       WHERE SALARY = 2000
+          OR SALARY = 3000
+          OR SALARY = 4000;
+   ```
+  **② ALL**    
    - ALL은 모든 조건을 동시에 만족해야 하지만, SALARY는 한 가지 값만 가지고 있으므로 논리적으로 잘못된 Query이다. 
-```SQL
-   SELECT EMPLOYEE_ID , SALARY 
-     FROM EMPLOYEES e 
-    WHERE SALARY = ALL(2000, 3000, 4000)
-    ORDER BY EMPLOYEE_ID
-```
+   ```SQL
+      SELECT EMPLOYEE_ID , SALARY 
+        FROM EMPLOYEES e 
+       WHERE SALARY = ALL(2000, 3000, 4000)
+       ORDER BY EMPLOYEE_ID
+   ```
  **③ SOME**   
  ```SQL
     SELECT EMPLOYEE_ID, SALARY
@@ -94,4 +95,103 @@
      WHERE SALARY = SOME(2000, 3000, 4000)
      ORDER BY EMPLOYEE_ID
  ```
-  
+
+**(2) 논리 조건식**
+- 논리 조건식은 WHERE절에서 AND, OR, NOT을 사용하는 조건식이다. 
+- AND는 모든 조건식을 만족해야 하며, OR는 여러 조건 중에 하나만을 만족해도 TRUE를 반환한다. 
+- NOT은 조건식 결과가 FALSE일때 TRUE를 반환한다. 
+```SQL
+   SELECT EMPLOYEE_ID, SALARY
+     FROM EMPLOYEES 
+    WHERE NOT (SALARY >= 2500)
+    ORDER BY EMPLOYEE_ID;
+``` 
+
+**(3) NULL 조건식**
+- NULL 조건식은 특정값이 NULL 여부를 확인하는 조건식이다. 
+- 특정 Column 값이 NULL인지의 여부를 확인할 때 에는 등호(= , <>)를 사용하면 제대로 비교할 수 없다. 
+- SALARY의 NULL 여부를 확인 하려면 SALARY IS NULL, SALARY IS NOT NULL의 형태로 비교해야 한다. 
+
+**(4) BETWEEN AND 조건식**
+- BETWEEN은 범위에 해당하는 값을 찾을 때 사용하는 조건식이다.
+- '>=', '<=' 논리 연산자로 변환이 가능하다.  
+```SQL
+   SELECT EMPLOYEE_ID, SALARY, EMP_NAME 
+     FROM EMPLOYEES  
+    WHERE SALARY BETWEEN 2000 AND 2500
+    ORDER BY EMPLOYEE_ID ;
+```
+```SQL
+   SELECT EMPLOYEE_ID, SALARY, EMP_NAME  
+     FROM EMPLOYEES  
+    WHERE SALARY >= 2000 AND SALARY <= 2500;
+    ORDER BY EMPLOYEE_ID ;
+```
+
+**(5) IN 조건식**
+- IN 조건식은 WHERE절에 명시한 값이 포함된 ROW를 반환한다 
+```SQL
+   SELECT EMPLOYEE_ID, SALARY, EMP_NAME
+     FROM EMPLOYEES 
+    WHERE SALARY IN(2000, 3000, 4000)
+    ORDER BY EMPLOYEE_ID
+``` 
+```SQL 
+   SELECT EMPLOYEE_ID, SALARY, EMP_NAME
+     FROM EMPLOYEES 
+    WHERE SALARY NOT IN(2000, 3000, 4000)
+    ORDER BY EMPLOYEE_ID
+```
+
+**(6) EXISTS 조건식**
+- EXISTS 조건식은 IN 조건식과 비슷하지만 후행 WHERE절에 값이 아닌 Sub Query만 올 수 있으며 Sub Query내에 JOIN 조건이 있어야 한다. 
+
+```SQL
+   SELECT A.DEPARTMENT_ID , A.DEPARTMENT_NAME 
+     FROM DEPARTMENTS A 
+    WHERE EXISTS 
+               (
+                 SELECT * 
+                   FROM EMPLOYEES B
+                  WHERE A.DEPARTMENT_ID  = B.DEPARTMENT_ID 
+                    AND B.SALARY  > 3000
+               )
+   ORDER BY A.DEPARTMENT_NAME;
+```
+**(7) LIKE 조건식**
+- LIKE 조건식은 문자열의 Pattern을 검색할 때 사용하는 조건식이다.
+- '%'는 앞, 뒤, 중간 어디에나 위치할 수 있으며, 조건식을 검색할 때에는 대소문자를 구분한다는 점을 주의해야 한다.
+- '_'는 나머지 글자 전체가 아닌 한 글자만 비교한다.  
+
+```SQL
+   SELECT EMP_NAME
+     FROM EMPLOYEES
+    WHERE EMP_NAME LIKE 'Al%' 
+    ORDER BY EMP_NAME;
+```
+```SQL
+   SELECT NAMES
+     FROM EX3_4
+    WHERE NAMES LIKE '홍길_'
+    
+    //Return 
+    홍길동     
+    홍길서
+    홍길남
+    홍길북
+```
+```SQL
+   SELECT NAMES
+     FROM EX3_4
+    WHERE NAMES LIKE '홍길%' 
+   
+   //Return
+   홍길동
+   홍길서
+   홍길남
+   홍길북
+   홍길EAST
+   홍길WEST
+   홍길NORTH
+   홍길SOUTH
+```
