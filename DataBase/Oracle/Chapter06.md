@@ -142,7 +142,7 @@
      FROM DAUL;
      //SQL Error ORA-00942
 ```
-- SORT(n)
+- **SQRT(n)**
   - n의 제곱근을 반환한다. 
 ```SQL
    SELECT SQRT(2),
@@ -154,8 +154,39 @@
      //1.73205080756887729352744634150587236694
      //2
      //3
-
 ```
+- **MOD(n2, n1)**
+  - n2 를 n1으로 나눈 나머지 값을 반환한다. 
+ ```SQL
+ 
+    SELECT MOD(7.7, 3),
+           MOD(-5, 2),
+           MOD(3.3, 2),
+           MOD(2.135, 3)
+      FROM DUAL;
+      //1.7
+      //-1
+      //0
+      //1.3
+      //2.135
+ ```
+- **REMAINDER(n2, n1)** 
+  - n2를 n1으로 나눈 나머지 값을 반환한다. 나머지를 구하는 연산방법이 MOD 함수와 다르다.  
+  - MOD 함수의 경우 MOD n2 -n1 * **FLOOR(n2/n1)**
+  - REMAINDER 함수의 경우 n2-n1 * **ROUND(n2/n1)**
+
+```SQL
+   SELECT REMAINDER(7.7, 3),
+          REMAINDER(-5, 2),
+          REMAINDER(3.3, 2),
+          REMAINDER(2.134, 3)
+     FROM DUAL;
+     //-1.3
+     //-1
+     //-0.7
+     //-0.866   
+```
+
 
 **(2) 문자 함수**
 ①
