@@ -63,10 +63,9 @@
 - Condition(조건식)은 한 개 이상의 Expression(표현식)과 논리 연산자가 결합된 식으로 **TRUE**, **FALSE**, **UNKNOWN** 세 가지 타입을 반환한다.
 - WHERE절에서 사용한 모든 모든 조건이 조건식에 포함된다. 
 
-**(1) 비교 조건식**
-- 논리 연산자, ANY, SOME, ALL Keyword로 비교하는 조건식을 말한다.   
-  ① ANY
-  - SALARY가 2000, 3000, 4000 증 하나라도 일치하는 모든 EMPLOYEE_ID를 조회 
+**(1) 비교 조건식**   
+  **① ANY**
+  - SALARY가 2000, 3000, 4000 증 하나라도 일치하는 모든 EMPLOYEE_ID를 조회하는 Query이다. 
 ```SQL
    SELECT EMPLOYEE_ID, SALARY 
      FROM EMPLOYEES 
@@ -80,16 +79,19 @@
        OR SALARY = 3000
        OR SALARY = 4000;
 ```
-  ② ALL    
-     - ALL은 모든 조건을 동시에 만족해야 하지만, SALARY는 한 가지 값만 가지고 있으므로 논리적으로 잘못된 Query이다. 
+   **② ALL**    
+   - ALL은 모든 조건을 동시에 만족해야 하지만, SALARY는 한 가지 값만 가지고 있으므로 논리적으로 잘못된 Query이다. 
 ```SQL
    SELECT EMPLOYEE_ID , SALARY 
      FROM EMPLOYEES e 
     WHERE SALARY = ALL(2000, 3000, 4000)
     ORDER BY EMPLOYEE_ID
 ```
- ③ SOME
+ **③ SOME**   
  ```SQL
- 
+    SELECT EMPLOYEE_ID, SALARY
+      FROM EMPLOYEES 
+     WHERE SALARY = SOME(2000, 3000, 4000)
+     ORDER BY EMPLOYEE_ID
  ```
   
