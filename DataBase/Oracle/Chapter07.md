@@ -70,13 +70,14 @@
 - **LTRIM(char, set), RTRIM(char, set)**
   - 매개변수로 들어온 char 문자열에서 set으로 지정된 문자열을 좌우 끝에서 제거한 후에 결과를 반환한다. 
   - set는 생략이 가능하며 Default로 공백 문자 한글자가 사용된다. 
+  - set에 명시된 문자를 한 번씩만 제거하며, set 문자로 명시한 문자가 좌우 끝에 없을 때 문자열 전체를 반환한다. 
 ```SQL
-   SELECT SUBSTRB('ABCDEFG', 1, 4),
-          SUBSTRB('ABCDEFG', -2, 2),
-          SUBSTRB('가나다라마바사', 1),
-          SUBSTRB('가나다라마바사', -3, 3)
+   SELECT LTRIM('ABCDEFGABC', 'ABC'),
+          RTRIM('ABCDEFGABC', 'ABC'),
+          LTRIM('가나다라마바사', '가'),
+          RTRIM('가나다라마바사', '가')
      FROM DUAL;
-     // ABCD
-     // FG
+     // DEFGABC
+     // ABCDEFG
+     // 나다라마바사
      // 가나다라마바사
-     // 사
