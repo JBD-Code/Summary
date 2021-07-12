@@ -81,3 +81,64 @@
      // ABCDEFG
      // 나다라마바사
      // 가나다라마바사
+ ```
+- **LPAD(expr1, n, expr2), RPAD(expr1, n, expr2)**
+  - 매개변수로 들어온 expr2 문자열을 n자리 만큼 좌우부터 채워 expr1을 반환한다. 
+  - 매개변수 n은 expr2, expr1이 합쳐져 반환되는 총 자릿수를 의미한다. 
+  - 매개변수 expr2 문자열을 생략할 경우 Default로 공백 한 문자가 사용된다.  
+ ```SQL
+    CREATE TABLE EX4_1 (PHONE_NUM VARCHAR(30));
+ 
+    INSERT INTO EX4_1 VALUES('111-1111');
+    INSERT INTO EX4_1 VALUES('111-2222');
+    INSERT INTO EX4_1 VALUES('333-3333');
+
+   SELECT RPAD(PHONE_NUM, 12, '(02)')
+     FROM EX4_1;
+     //111-1111(02)
+     //111-2222(02)
+     //333-3333(02)
+```
+
+- **REPLACE(char, search_str, replace_str)**
+  - char 문자열에서 sear 문자열을 찾아서 이를 replace_st r문자열로 대체한 결과를 반환한다.  
+  - LTRIM, RTRIM을 사용해서 좌우 끝의 공백을 제거할 수 있지만 중간에 있는 공백을 제거할 수 없다. 하지만 REPLACE를 사용하면 가능하다.
+```SQL
+   SELECT REPLACE('CODE NAME IS JAVA KILLER!', 'JAVA', 'C#')
+     FROM DUAL;
+     //CODE NAME IS C# KILLER!
+```
+```SQL
+ SELECT RTRIM('  ABD  DEF '),
+        LTRIM('  ABD  DEF '),
+        REPLACE('  ABD  DEF  ', ' ', '')
+   FROM DUAL;
+   //  ABD  DEF	
+   //ABD  DEF 	
+   //ABDDEF
+```
+
+- **INSTR(str, substr, pos, occur)**
+  - str문자열에서 substr과 일치하는 위치를 반환하는데, pos는 시작 위치로 Default 값은 1, occur은 몇 번째 일치하는지를 명시하며 Default 값은 1이다. 
+ ```SQL 
+ SELECT INSTR('내가 만약 즐거울 때면, 내가 만약 괴로울 때면, 내가 만약 외로울 때면', '만약'),
+        INSTR('내가 만약 즐거울 때면, 내가 만약 괴로울 때면, 내가 만약 외로울 때면', '만약', 5),
+        INSTR('내가 만약 즐거울 때면, 내가 만약 괴로울 때면, 내가 만약 외로울 때면', '만약', 5, 2),
+   FROM DUAL;
+   //4
+   //8
+   //32
+ ``` 
+- **LENGTH(char), LENGTHB(char)**
+  - LENGTH는 매개변수로 들어온 문자열의 개수를 반환하고, LENGTHB는 매개변수로 들어온 문자열의 Byte를 반환한다. 
+```SQL 
+   SELECT LENGTH('프로그래머'),
+          LENGTHB('프로그래머'),
+          LENGTH('programmer'),
+          LENGTHB('programmer')
+     FROM DUAL;
+     //5
+     //15
+     //10
+     //10
+```
