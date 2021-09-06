@@ -171,3 +171,33 @@ CREATE OR REPLACE PROCEDURE MY_NEW_JOB_PROC
       COMMIT; 
      END;       
 ```
+```SQL
+   CREATE OR REPLACE PROCEDURE MY_PARAMETER_TEST_PROC 
+    ( 
+     P_VAR1         VARCHAR2,
+     P_VAR2 OUT     VARCHAR2,
+     P_VAR3 IN OUT  VARCHAR2
+     ) IS 
+
+      BEGIN 
+        DBMS_OUTPUT.PUT_LINE('P_VAR1 VALUE ='|| P_VAR1);
+        DBMS_OUTPUT.PUT_LINE('P_VAR2 VALUE ='|| P_VAR2);
+        DBMS_OUTPUT.PUT_LINE('P_VAR3 VALUE ='|| P_VAR3);
+
+        P_VAR2 := 'B2';
+        P_VAR3 := 'C3'; 
+      END;
+```
+```SQL
+   DECLARE 
+      V_VAR1 VARCHAR2(10) :='A';
+      V_VAR2 VARCHAR2(10) :='B';
+      V_VAR3 VARCHAR2(10) :='C';
+
+      BEGIN
+        MY_PARAMETER_TEST_PROC(V_VAR1, V_VAR2, V_VAR3);
+
+        DBMS_OUTPUT.PUT_LINE('V_VAR2 VALUE ='|| V_VAR2);
+        DBMS_OUTPUT.PUT_LINE('V_VAR3 VALUE ='|| V_VAR3);
+      END;
+```
