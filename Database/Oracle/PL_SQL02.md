@@ -2,7 +2,7 @@
 ### PL/SQL Procedure
 **(1) PL/SQL Exception** 
 - PL/SQL 코드를 작성할 때 발생할 수 있는 오류에는 크게 두가지로 나뉜다. 첫 번째는 문법오류로 객체 (Table, View, Function, Procedure)나 키워드 이름을 잘못 참조하거나, Function, Procedure의 Parameter를 잘못 명시했을 때 발생되는 오류로 이들은 Compile할때 걸러진다. 두 번째는 Compile일 때는 아무 문제가 없으나 Runtime 때 로직을 처리하면서 발생하는 오류인데 이를 Exception이라고 한다. 
-- Exception은 다시 Oracle에서 발생시키는 System Exception, 사용자가 의도적으로 발생시킬 수 있는 User Defined Exception으로 나뉠 수 있다. 
+- Exception은 Oracle에서 발생시키는 **System Exception**, 사용자가 의도적으로 발생시킬 수 있는 **User Defined Exception**으로 나뉜다. 
 ```SQL 
    EXCEPTION WHEN EXCEPTION_NAME THEN 예외처리구문1 
              WHEN EXCEPTION_NAME THEN 예외처리구문2
