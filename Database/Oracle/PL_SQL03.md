@@ -59,3 +59,25 @@
 
 **(2) RAISE, RAISE_APPLICATION_ERROR**   
  - 사용자 정의 예외를 명시적, 의도적으로 발생시키기 위해서 "RAISE 사용자 정의 예외명"을 사용하지만 대신에 미리 정의된 예외명을 명시해서 사용하는 것도 가능하다.  
+```SQL
+   CREATE OR REPLACE PROCEDURE TEST_USER_EXCEPTION2
+    (
+     p_num NUMBER 
+     ) IS
+
+     BEGIN 
+       IF  p_num <= 0 THEN 
+         RAISE INVALID_NUMBER;
+       END IF ;
+
+       DBMS_OUTPUT.PUT_LINE(p_num);
+
+       EXCEPTION 
+         WHEN INVALID_NUMBER THEN
+           DBMS_OUTPUT.PUT_LINE('ERROR');
+         WHEN OTHERS THEN
+           DBMS_OUTPUT.PUT_LINE('ERROR CODE : '||SQLCODE);
+           DBMS_OUTPUT.PUT_LINE('ERROR MESSAGE : '||SQLERRM);
+           DBMS_OUTPUT.PUT_LINE('ERROR LINE : '||DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
+     END;
+```
