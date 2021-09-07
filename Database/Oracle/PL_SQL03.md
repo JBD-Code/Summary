@@ -58,7 +58,7 @@
 ```
 
 **(2) RAISE, RAISE_APPLICATION_ERROR**   
- - 사용자 정의 예외를 명시적, 의도적으로 발생시키기 위해서 "RAISE 사용자 정의 예외명"을 사용하지만 대신에 미리 정의된 예외명을 명시해서 사용하는 것도 가능하다.  
+ - 사용자 정의 예외를 명시적, 의도적으로 발생시키기 위해 "RAISE 사용자 정의 예외명"을 사용 대신에 미리 정의된 예외명을 명시해서 사용하는 것도 가능하다.  
 ```SQL
    CREATE OR REPLACE PROCEDURE TEST_USER_EXCEPTION2
     (
