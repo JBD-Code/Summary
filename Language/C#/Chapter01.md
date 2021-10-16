@@ -2,7 +2,7 @@
 
 ### (1) C# LINQ
  - LINQ는 Language INtegrated Query의 약자로 C#3.0에 소개된 기능이다. 
- - LINQ는 간단한 수식(Expression)을 사용하여 Datasource 혹은 Collection으로 부터 Data 질의 기능에 사용된다. 
+ - LINQ는 간단한 수식(Expression)을 사용하여 Data source 혹은 Collection으로 부터 Data 질의 기능에 사용된다. 
  - 어떤 Data를 대상으로 하는가에 따라 여러 종류로 나눌 수 있다. 
    - .NET Object를 대상으로 하는 LINQ to Objects
    - XML을 대상으로 하는 LINQ to XML 
@@ -15,7 +15,7 @@
 ### (2) LINQ FROM 
  - 모든 LINQ Query Expression은 from절로 시작된다. 
  - QUERY의 대상이 될 Data Source와 Data Source안에 들어있는 각 요소 Data를 나타낸는 Range Variable를 FROM에서 지정해야한다. 
- - FROM절의 Data Source은 아무 형식이나 사용할 수 없고 IEnumerable<T> Interface를 상속하는 형식이어야 하는데 Collections Object들은 IEnumerable<T>를 상속하기 때문에 이들은 모두 FROM절에서  Data Source로 사용할 수 있다. 
+ - FROM절의 Data Source은 아무 형식이나 사용할 수 없고 IEnumerable<T> Interface를 상속하는 형식이어야 하는데 Collection Object들은 IEnumerable<T>를 상속하기 때문에 이들은 모두 FROM절에서  Data Source로 사용할 수 있다. 
  - Range Variable는 Query Variable라고도 하는데, Foreach문의 반복 변수로 생각하면 이해하기 쉽다. 
 ```CSharp
    //arrNum은 Data Source
