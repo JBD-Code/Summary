@@ -11,7 +11,7 @@
  |6|Presentation Layer|Data|JPG, MPEG, AFP, PAP|
  |5|Session Layer|Data|NET BIO, SSH|
  |4|Transport Layer|Segments|TCP, UDP|GATEWAY|
- |3|Network Layer|Packet|IP, RIP ARP, ICMP| RUTER|
+ |3|Network Layer|Packet|IP, RIP ARP, ICMP| ROUTER|
  |2|DataLink Layer| Frame|Etherent, PPP, HDLC|BRIDGE, SWITCH|
  |1|Physical Layer | Bit|RS-232, RS-449|HUB, REPEATER|
  
