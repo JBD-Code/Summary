@@ -2,20 +2,22 @@
 ### Network Device 
 **(1) Hub**
  - OSI Physical Layer에서 동작하는 장비 
- - Hub는 Multi Port Repeter로 한 Port에 들어온 Data를 다른 Port로 뿌려주는 역할을 하는 장비다. 
+ - Hub는 Multi Port Repeater로 한 Port에 들어온 Data를 다른 Port로 뿌려주는 역할을 하는 장비다.
+ - Hub는 내부 연결통로를 공유하는 방식이다. 
  - Ethernet Hub 
     - 10Mphs  Hub 
     - 100Mphs Hub  
  - Token Ring Hub 
 
-**(2) Router**
+**(2) Switch**
+ - OSI DataLink Layer에서 동작하는 장비  
+ - Switch는 내부에 Memory를 가지고 있어서 각 Port에 연결되어 있는 컴퓨터들의 MAC Address가 여기에 기록되어 있고, PC A가 D로 신호를 보내면 그 신호는 D로 만 전달이 되고 다른 PC에는 신호를 보내지 않는다. 즉 송신지와 수신지를 구분하여 해당 목적지로만 신호를 전달한다. 
+ - Switch는 Port별로 상대 Port로 향하는 독립적인 통로를 가지고 있다.  
+
+**(3) Router**
  - OSI Physical Layer에서 동작하는 장비 
  - Network상 특정 출발지에서 특정 도착지 까지 여러 갈래의 길이 있는데 이러한 길을 찾아내고, Internet 회선을 여러 대가 사용가능하도록 나눠주는 역할을 한다. 
- 
-**(3) Switch**
- - OSI DataLink Layer에서 동작하는 장비  
- - 자신의 Port에 연결된 A 라는 PC가 통신을 위해서 Frame를 보내면 이 PC의 MAC Address를 읽어서 자신의 MAC Address에 저장하고 나중에 참고하여 허가해주는 역할을 한다. 
-    
+
 **(4) Repeater**
  - OSI Physical Layer에서 동작하는 장비
  - 근거리 통신망을 구성하는 Segement를 확장, 서로 연결해 주는 장비다. 
