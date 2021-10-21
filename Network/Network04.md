@@ -22,7 +22,7 @@
 
 **(2) Bridge** 
  - Hub와 마찬가지로 Ethernet 장비를 물리적으로 연결시키고 Frame의 전송거리를 연장시켜준다. 그러나 단순히 전기적인 신호를 증폭시키는 것이 아니라 Frame를 다시 만들어 전송해준다. 
- - Hub와는 달리 DataLink Layer의 주소인 Ethernet의 MAC Address를 보고 Frame 전송 Port를 결정하므로 **DataLink Layer**에서 동작하는장비이다. 
+ - Hub와는 달리 DataLink Layer의 주소인 Ethernet의 MAC Address를 보고 Frame 전송 Port를 결정하므로 **DataLink Layer**에서 동작하는 장비이다. 
  - 최근 Bridge는 그 역할을 Switch 에게 물려주고 사용하지 않는다. 
    
 **(3) Switch**
