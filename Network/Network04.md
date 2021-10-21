@@ -16,7 +16,7 @@
    - Network에 흐르는 모든 Data를 단순히 연결하는 기능만 한다. 
    
  - Switching Hub  
-   - Network상 흐르는 Data의 유무 및 흐름을 제어하면서 각각의 노드가 Hub의 최대 대역폭을 사용할 수 있게 하는 지능형 Hub로 최근 사용하는 Hub는 모든 여기에 해당한다.  
+   - Network상에 흐르는 Data의 유무 및 흐름을 제어하면서 각각의 노드가 Hub의 최대 대역폭을 사용할 수 있게 하는 지능형 Hub로 최근 사용하는 Hub는 모든 여기에 해당한다.  
  > **Flooding**   
   > HUB는 한 장비에서 전송된 Data Frame을 Hub에 연결된 모든 장비에게 다 전송하는데 이것을 Flooding 이라고 한다.
 
