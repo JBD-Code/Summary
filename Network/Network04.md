@@ -34,7 +34,7 @@
 
 
 **(4) Router**
- - **OSI Physical Layer**에서 동작하는 장비 
+ - **OSI Network Layer**에서 동작하는 장비 
  - Network상 특정 출발지에서 특정 도착지 까지 여러 갈래의 길이 있는데 이러한 길을 찾아내고, Internet 회선을 여러 대가 사용 가능 하도록 나눠주는 역할을 한다. 
  - IP Address 등 Network Layer Header에 있는 주소를 참조하여 목저질와 연결되는 Port로 Packet을 전송한다. Subnet이 다른 IP Address를 가진 장비간에 통신이 이루어지려면 Network Layer의 장비를 거쳐야 한다.  
 
