@@ -16,12 +16,20 @@
    - Network에 흐르는 모든 Data를 단순히 연결하는 기능만 한다. 
    
  - Switching Hub  
-   - Network상 흐르는 Data의 유무 및 흐름을 제어하면서 각각의 노드가 Hub의 최대 대역폭을 사용할 수 있게 하는 지능형 Hub로 최근의 사용하는 Hub는 모든 여기에 해당한다.  
+   - Network상 흐르는 Data의 유무 및 흐름을 제어하면서 각각의 노드가 Hub의 최대 대역폭을 사용할 수 있게 하는 지능형 Hub로 최근 사용하는 Hub는 모든 여기에 해당한다.  
+ > **Flooding**   
+  > HUB는 한 장비에서 전송된 Data Frame을 Hub에 연결된 모든 장비에게 다 전송하는데 이것을 Flooding 이라고 한다.
 
+**(2) Bridge** 
+ - Hub와 마찬가지로 Ethernet 장비를 물리적으로 연결시키고 Frame의 전송거리를 연장시켜준다. 그러나 단순히 전기적인 신호를 증폭시키는 것이 아니라 Frame를 다시 만들어 전송해준다. 
+ - Hub와는 달리 DataLink Layer의 주소인 Ethernet의 MAC Address를 보고 Frame 전송 Port를 결정하므로 **DataLink Layer**에서 동작하는장비이다. 
+ - 최근 Bridge는 그 역할을 Switch 에게 물려주고 사용하지 않는다. 
+   
 **(3) Switch**
  - **OSI DataLink Layer**에서 동작하는 장비
  - Switch는 내부에 Memory를 가지고 있어서 각 Port에 연결되어 있는 PC들의 MAC Address가 여기에 기록되어 있고, PC A가 D로 신호를 보내면 그 신호는 D로만 전달되고 다른 PC에는 신호를 보내지 않는다. 즉 송신지와 수신지를 구분해 해당 목적지로만 신호를 전달한다. 
  - Switch는 Port별로 상대 Port로 향하는 독립적인 통로를 가지고 있다.  
+
 
 **(4) Router**
  - **OSI Physical Layer**에서 동작하는 장비 
