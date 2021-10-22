@@ -32,7 +32,6 @@
  - Switch는 Port별로 상대 Port로 향하는 독립적인 통로를 가지고 있다. 
  - Switch를 사용하면 Frame 충돌이 감소하여 Network 성능이 향상되고, 보안성이 좋아진다. 최근에는 Switch가 발전하여 MAC Address 뿐만 아니라 3,4,5,6,7 등 상위 계층의 정보도 함께 참조하여 Switching시키는 제품들이 많은데 이런 Switch들과 구분하여 MAC Address만을 Switching 시키는 제품들을 L2(Layer 2)Switch라고 한다.  
 
-
 **(4) Router**
  - **OSI Network Layer**에서 동작하는 장비 
  - Network상 특정 출발지에서 특정 도착지 까지 여러 갈래의 길이 있는데 이러한 길을 찾아내고, Internet 회선을 여러 대가 사용 가능 하도록 나눠주는 역할을 한다. 
