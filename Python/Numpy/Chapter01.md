@@ -14,6 +14,12 @@
    import numpy as np 
 ```
 
+**(3) Numpy의 차원** 
+- Scalar : 하나의 데이터 값으로만 존재하는 것 
+- Vector : 숫자들의 배열 (1D array) 
+- Matrix : 숫자들의 2D array (rows : 행, Column : 열 )
+
+
 
 참조   
   > [제주 하간디 이신 데이터들 Python으로 몬딱 분석해불게](https://ridibooks.com/books/2773000032?_s=search&_q=%EC%A0%9C%EC%A3%BC+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B6%84%EC%84%9D&_rdt_sid=search&_rdt_idx=0)  
