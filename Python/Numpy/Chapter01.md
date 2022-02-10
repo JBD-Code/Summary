@@ -18,6 +18,12 @@
 - Scalar : 하나의 데이터 값으로만 존재하는 것 
 - Vector : 숫자들의 배열 (1D array) 
 - Matrix : 숫자들의 2D array (rows : 행, Column : 열 )
+- Tensor : 2D arrya 이상의 배열 
+```Python
+   arr_vector = np.array([1, 2, 3,])
+ 
+
+```
 
 
 
