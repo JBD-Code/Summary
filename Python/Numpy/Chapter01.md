@@ -17,15 +17,40 @@
 **(3) Numpy의 차원** 
 - Scalar : 하나의 데이터 값으로만 존재하는 것 
 - Vector : 숫자들의 배열 (1D array) 
-- Matrix : 숫자들의 2D array (rows : 행, Column : 열 )
+- Matrix : 숫자들의 2D array (Rows : 행, Column : 열 )
 - Tensor : 2D array 이상의 배열 
 ```Python
-   arr_vector = np.array([1, 2, 3,])
- 
-
+   arr_scalar = np.array(1)
+   print(arr_scalar)
+   print(arr_scalar.shape, arr_scalar.ndim)
+   # 1
+   # () 0 
+```
+```Python
+   arr_vector = np.array([1, 2, 3])
+   print(arr_vector)
+   print(arr_vector.shape, arr_vector.ndim)
+   # [1, 2, 3]
+   # (3,) 1 
+```
+```Python
+   arr_matrix = np.array([[1, 2, 3], [4, 5, 6]])
+   print(arr_vector)
+   print(arr_vector.shape, arr_vector.ndim)
+   # [[1 2 3]
+   # [4 5 6]]
+   # (2, 3) 2
 ```
 
-
+```Python
+   arr_tensor = np.array([[[1, 2], [1, 2], [1, 2]], [[1, 2], [1,2], [1, 2]]])
+   print(arr_tensor)
+   print(arr_tensor.shape, arr_tensor.ndim)
+   # [[1 2]
+   # [1 2]
+   # [1 2]]]
+   # (2, 3, 2) 3
+```
 
 참조   
   > [제주 하간디 이신 데이터들 Python으로 몬딱 분석해불게](https://ridibooks.com/books/2773000032?_s=search&_q=%EC%A0%9C%EC%A3%BC+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B6%84%EC%84%9D&_rdt_sid=search&_rdt_idx=0)  
